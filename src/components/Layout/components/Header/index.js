@@ -13,12 +13,10 @@ import {
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
-    faMessage,
     faUser,
     faCoins,
     faGear,
     faSignOut,
-    faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import { Wrapper as PopperWrapper } from '../../../Popper';
@@ -26,6 +24,8 @@ import AccountItem from '../../../AccountItem';
 import Button from '../../../Button';
 import Menu from '../../../Popper/Menu';
 import 'tippy.js/dist/tippy.css';
+import { InboxIcon, MessageIcon } from '../../../Icons';
+import Image from '../../../Images';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -135,12 +135,12 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Messages">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                    <MessageIcon />
                                 </button>
                             </Tippy>
                             <Tippy delay={[0, 200]} content="Inbox">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <InboxIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -151,10 +151,11 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 alt="Nguyễn Văn A"
                                 src="https://p16-sign-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/1686693599542273.jpeg?x-expires=1661180400&x-signature=x5hkv0Wd3JBmZxLmboG43edfo%2FU%3D"
+                                // fallback="https://static.fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
