@@ -20,6 +20,8 @@ import 'tippy.js/dist/tippy.css';
 import { InboxIcon, MessageIcon } from '../../../Icons';
 import Image from '../../../Images';
 import Search from '../Search';
+import { Link } from 'react-router-dom';
+import routesConfig from '../../../../config/routes';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -85,7 +87,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="tiktok"></img>
+                <Link className={cx('logo-link')} to={routesConfig.home}>
+                    <img src={images.logo} alt="tiktok"></img>
+                </Link>
                 <Search />
                 <div className={cx('actions')}>
                     <Button simple leftIcon={<FontAwesomeIcon icon={faPlus} />}>
