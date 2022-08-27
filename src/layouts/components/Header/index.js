@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import Tippy from '@tippyjs/react';
-import images from '../../../../assets/images';
+import images from '../../../assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faPlus,
@@ -14,14 +14,14 @@ import {
     faGear,
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-import Button from '../../../Button';
-import Menu from '../../../Popper/Menu';
+import Button from '../../../components/Button';
+import Menu from '../../../components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
-import { InboxIcon, MessageIcon } from '../../../Icons';
-import Image from '../../../Images';
+import { InboxIcon, MessageIcon } from '../../../components/Icons';
+import Image from '../../../components/Images';
 import Search from '../Search';
 import { Link } from 'react-router-dom';
-import routesConfig from '../../../../config/routes';
+import config from '../../../config';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -87,7 +87,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link className={cx('logo-link')} to={routesConfig.home}>
+                <Link className={cx('logo-link')} to={config.routes.home}>
                     <img src={images.logo} alt="tiktok"></img>
                 </Link>
                 <Search />
